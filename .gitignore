@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+build/
+
+# OpenNext / Cloudflare
+.open-next/
+.wrangler/
+cloudflare-env.d.ts
+
+# misc
+.DS_Store
+*.tsbuildinfo
+.env*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/

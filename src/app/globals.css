@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  /* === LVN メインパレット (仮ロゴから抽出した 8 色) === */
+  --color-lvn-pink: #FF4FB0;
+  --color-lvn-red: #FF5A5A;
+  --color-lvn-purple: #9B5BFF;
+  --color-lvn-blue: #2D8BFF;
+  --color-lvn-lime: #B6EE5E;
+  --color-lvn-green: #4FC04F;
+  --color-lvn-yellow: #FFD647;
+  --color-lvn-orange: #FFA235;
+
+  /* === 職種カラー (5 職種 = ロゴ 5 色の semantic alias) === */
+  --color-role-medical: var(--color-lvn-blue);    /* 医療 */
+  --color-role-welfare: var(--color-lvn-purple);  /* 福祉 */
+  --color-role-childcare: var(--color-lvn-pink);  /* 保育 */
+  --color-role-nursing: var(--color-lvn-green);   /* 介護 */
+  --color-role-sports: var(--color-lvn-red);      /* スポーツ */
+
+  /* === ベース === */
+  --color-base: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B6B6B;
+  --color-border: #E5E5E5;
+
+  /* === フォント === */
+  --font-zen-maru: var(--font-zen-maru), "Hiragino Maru Gothic ProN", "Yu Gothic UI", sans-serif;
+  --font-poppins: var(--font-poppins), system-ui, sans-serif;
+}
+
+html, body {
+  background: var(--color-base);
+  color: var(--color-text);
+}
+
+body {
+  font-family: var(--font-zen-maru);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* `prefers-reduced-motion: reduce` 対応 (アクセシビリティ AA) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

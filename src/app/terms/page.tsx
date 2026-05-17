@@ -7,7 +7,6 @@ export const metadata = {
 export default function TermsPage() {
   const rows = [
     { label: "販売事業者", value: lvnInfo.legalName },
-    { label: "運営責任者", value: lvnInfo.representative },
     { label: "所在地", value: lvnInfo.address },
     { label: "電話番号", value: lvnInfo.phone },
     { label: "メールアドレス", value: lvnInfo.email },

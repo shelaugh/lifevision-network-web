@@ -25,7 +25,6 @@ const catches = [
 const corporateInfo = [
   { label: "法人名", value: lvnInfo.legalName },
   { label: "略称", value: lvnInfo.abbreviation },
-  { label: "代表者", value: lvnInfo.representative },
   { label: "所在地", value: lvnInfo.address },
   { label: "設立", value: lvnInfo.established },
   { label: "事業内容", value: "公認指導者資格 (2 種) 取得課程運営 / 6 事業によるレクリエーション実践活動 / 多職種連携支援" },

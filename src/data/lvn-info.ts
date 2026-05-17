@@ -7,7 +7,6 @@ export const lvnInfo = {
   legalName: "一般社団法人 Life Vision NetWork",
   abbreviation: "LVN",
   established: "2024", // TODO: 実際の設立年確認
-  representative: "大森 [代表氏名]", // TODO: 実名
   address: "[所在地未設定]", // TODO: 実住所
   phone: "[電話番号未設定]",
   email: "[メールアドレス未設定]",

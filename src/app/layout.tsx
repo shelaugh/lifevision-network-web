@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   title: "Life Vision NetWork (LVN) | 一般社団法人",
   description:
     "関わるすべての人が幸福に暮らし、共に生きる社会の実現へ。多職種連携 × レクリエーションで「心を元気にする」社会を目指す一般社団法人ライフビジョンネットワーク。",
+  // Phase 1-4 仮公開期間は検索エンジンに載せない (Phase 5 本公開時に外す)
+  robots: { index: false, follow: false },
   openGraph: {
     title: "Life Vision NetWork (LVN)",
     description:

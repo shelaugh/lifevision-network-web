@@ -53,9 +53,9 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/qualification/#apply"
-            className="hidden sm:inline-flex items-center px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-[color:var(--color-lvn-red)] text-white text-sm font-bold shadow-md hover:scale-[1.03] transition-transform"
+            className="hidden sm:inline-flex items-center px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-[#FFD647] text-black text-sm font-black hover:scale-[1.03] transition-transform"
           >
-            資格申込 (無料相談)
+            資格を取得する
           </Link>
           <button
             type="button"
@@ -90,9 +90,9 @@ export default function Header() {
               <Link
                 href="/qualification/#apply"
                 onClick={() => setOpen(false)}
-                className="block py-3 px-2 mt-2 rounded-full bg-[color:var(--color-lvn-red)] text-white text-center font-bold"
+                className="block py-3 px-2 mt-2 rounded-full bg-[#FFD647] text-black text-center font-black"
               >
-                資格申込 (無料相談)
+                資格を取得する
               </Link>
             </li>
           </ul>

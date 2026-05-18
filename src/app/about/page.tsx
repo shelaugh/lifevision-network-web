@@ -2,6 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { lvnInfo } from "@/data/lvn-info";
 import { Stethoscope, HandHeart, Baby, Activity, Dumbbell, ArrowRight } from "lucide-react";
+import {
+  HandStar,
+  HandSquiggle,
+  HandHeart as DecoHeart,
+  HandLeaf,
+  HandSparkle,
+} from "@/components/decorations/HandDrawn";
 
 const roles = [
   { ja: "医療", en: "Medical", hex: "#2D8BFF", icon: Stethoscope },
@@ -56,8 +63,12 @@ export default function AboutPage() {
       </section>
 
       {/* ============ ミッション ============ */}
-      <section className="bg-white px-6 md:px-10 py-20 md:py-28">
-        <div className="max-w-3xl mx-auto">
+      <section className="relative bg-white px-6 md:px-10 py-20 md:py-28 overflow-hidden">
+        <HandStar color="#FFD647" className="absolute top-12 right-[8%]" size={50} />
+        <HandSquiggle color="#FF4FB0" className="absolute bottom-16 left-[6%]" size={90} />
+        <DecoHeart color="#FF5A5A" className="absolute top-1/3 right-[12%]" size={40} />
+
+        <div className="relative max-w-3xl mx-auto">
           <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-5">
             Our Mission
           </p>
@@ -110,8 +121,11 @@ export default function AboutPage() {
       </section>
 
       {/* ============ 大切にしている言葉 ============ */}
-      <section className="bg-[#FAFAFA] px-6 md:px-10 py-20 md:py-28">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative bg-[#FAFAFA] px-6 md:px-10 py-20 md:py-28 overflow-hidden">
+        <HandLeaf color="#4FC04F" className="absolute top-16 right-[5%]" size={55} />
+        <HandSparkle color="#FFD647" className="absolute bottom-12 left-[7%]" size={45} />
+
+        <div className="relative max-w-5xl mx-auto">
           <div className="max-w-2xl mb-14 md:mb-20">
             <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-4">
               Our Values

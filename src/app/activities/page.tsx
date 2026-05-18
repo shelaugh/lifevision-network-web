@@ -3,6 +3,7 @@ import Link from "next/link";
 import { activities } from "@/data/activities";
 import ActivityIcon from "@/components/decorations/ActivityIcon";
 import { ArrowRight } from "lucide-react";
+import { HandStar, HandSquiggle, HandLeaf, HandHeart as DecoHeart } from "@/components/decorations/HandDrawn";
 
 export default function ActivitiesPage() {
   return (
@@ -34,8 +35,13 @@ export default function ActivitiesPage() {
       </section>
 
       {/* ============ 6 活動グリッド ============ */}
-      <section className="bg-white px-6 md:px-10 py-20 md:py-28">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <section className="relative bg-white px-6 md:px-10 py-20 md:py-28 overflow-hidden">
+        <HandStar color="#FFD647" className="absolute top-10 right-[5%]" size={50} />
+        <HandSquiggle color="#9B5BFF" className="absolute top-1/3 left-[3%]" size={80} />
+        <HandLeaf color="#4FC04F" className="absolute bottom-16 right-[8%]" size={55} />
+        <DecoHeart color="#FF4FB0" className="absolute bottom-32 left-[8%]" size={40} />
+
+        <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {activities.map((activity) => (
             <Link
               key={activity.slug}

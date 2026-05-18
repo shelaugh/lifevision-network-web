@@ -8,6 +8,7 @@ import {
   formatPublishedDate,
 } from "@/data/news";
 import { ArrowRight, Tag } from "lucide-react";
+import { HandStar, HandSparkle, HandDots, HandSquiggle } from "@/components/decorations/HandDrawn";
 
 export default function NewsPage() {
   const list = sortByPublished(newsList);
@@ -34,8 +35,13 @@ export default function NewsPage() {
       </section>
 
       {/* ============ 記事一覧 ============ */}
-      <section className="bg-[#FAFAFA] px-6 md:px-10 py-16 md:py-20 border-t border-[color:var(--color-border)]">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative bg-[#FAFAFA] px-6 md:px-10 py-16 md:py-20 border-t border-[color:var(--color-border)] overflow-hidden">
+        <HandStar color="#FFD647" className="absolute top-10 right-[5%]" size={50} />
+        <HandSparkle color="#FF4FB0" className="absolute top-1/3 left-[3%]" size={45} />
+        <HandDots color="#2D8BFF" className="absolute bottom-20 right-[8%]" size={60} />
+        <HandSquiggle color="#9B5BFF" className="absolute bottom-32 left-[5%]" size={80} />
+
+        <div className="relative max-w-7xl mx-auto">
           {list.length === 0 ? (
             <div className="text-center py-20 text-[color:var(--color-text-muted)]">
               現在お知らせはありません。

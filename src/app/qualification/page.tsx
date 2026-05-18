@@ -2,6 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { lvnInfo } from "@/data/lvn-info";
 import { ArrowRight, BookOpen, Award, Rocket, Clock, Check, X } from "lucide-react";
+import {
+  HandStar,
+  HandSquiggle,
+  HandDots,
+  HandArrow,
+  HandSparkle,
+  HandSun,
+} from "@/components/decorations/HandDrawn";
 
 const stages = [
   { no: 1, label: "知る", desc: "資格の概要・LVN で取る意義・多職種連携での活かし方を知る", icon: BookOpen },
@@ -110,8 +118,12 @@ export default function QualificationPage() {
       </section>
 
       {/* ============ 3 段階 ============ */}
-      <section className="bg-white px-6 md:px-10 py-20 md:py-28">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative bg-white px-6 md:px-10 py-20 md:py-28 overflow-hidden">
+        <HandStar color="#FFD647" className="absolute top-12 right-[6%]" size={50} />
+        <HandSquiggle color="#FF4FB0" className="absolute bottom-20 left-[8%]" size={90} />
+        <HandDots color="#2D8BFF" className="absolute top-1/2 right-[12%]" size={60} />
+
+        <div className="relative max-w-6xl mx-auto">
           <div className="max-w-2xl mb-14 md:mb-20">
             <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-4">
               Step by Step
@@ -142,8 +154,12 @@ export default function QualificationPage() {
       </section>
 
       {/* ============ 月 1 回講習会 (黄色帯) ============ */}
-      <section className="bg-[#FFD647] px-6 md:px-10 py-20 md:py-28 border-y-2 border-black">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-16 items-center">
+      <section className="relative bg-[#FFD647] px-6 md:px-10 py-20 md:py-28 border-y-2 border-black overflow-hidden">
+        <HandSun color="#FFA235" className="absolute top-10 right-[10%]" size={70} />
+        <HandArrow color="#000" className="absolute bottom-12 left-[15%]" size={70} />
+        <HandSparkle color="#FF4FB0" className="absolute top-1/2 left-[5%]" size={50} />
+
+        <div className="relative max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-16 items-center">
           <div className="text-center">
             <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase font-black mb-4">
               Monthly Session
@@ -288,8 +304,13 @@ export default function QualificationPage() {
       </section>
 
       {/* ============ 申込 CTA ============ */}
-      <section id="apply" className="bg-[#FFD647] px-6 md:px-10 py-24 md:py-32 border-t-2 border-black">
-        <div className="max-w-3xl mx-auto text-center">
+      <section id="apply" className="relative bg-[#FFD647] px-6 md:px-10 py-24 md:py-32 border-t-2 border-black overflow-hidden">
+        <HandStar color="#FF4FB0" className="absolute top-16 left-[10%]" size={60} />
+        <HandSun color="#FFA235" className="absolute top-12 right-[8%]" size={60} />
+        <HandSparkle color="#FF5A5A" className="absolute bottom-16 left-[15%]" size={50} />
+        <HandDots color="#2D8BFF" className="absolute bottom-20 right-[10%]" size={70} />
+
+        <div className="relative max-w-3xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-black leading-tight mb-6">
             あなたも、
             <br />

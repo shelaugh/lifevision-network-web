@@ -3,6 +3,7 @@ import { Zen_Maru_Gothic, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileBottomCTA from "@/components/MobileBottomCTA";
 
 const zenMaru = Zen_Maru_Gothic({
   subsets: ["latin"],
@@ -38,10 +39,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${zenMaru.variable} ${poppins.variable} min-h-full flex flex-col`}>
+      <body className={`${zenMaru.variable} ${poppins.variable} min-h-full flex flex-col pb-14 md:pb-0`}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <MobileBottomCTA />
       </body>
     </html>
   );

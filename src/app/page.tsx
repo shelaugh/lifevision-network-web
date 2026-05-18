@@ -3,7 +3,18 @@ import Image from "next/image";
 import { activities } from "@/data/activities";
 import { lvnInfo } from "@/data/lvn-info";
 import ActivityIcon from "@/components/decorations/ActivityIcon";
-import { ArrowRight, Heart, Sprout, Users2, Sparkles, MapPin, Tag } from "lucide-react";
+import { ArrowRight, Heart, Sprout, Users2, Sparkles, MapPin, Tag, UserPlus } from "lucide-react";
+import {
+  HandStar,
+  HandSquiggle,
+  HandDots,
+  HandArrow,
+  HandHeart,
+  HandLeaf,
+  HandSparkle,
+  HandBlob,
+  HandSun,
+} from "@/components/decorations/HandDrawn";
 import {
   getFeaturedUpcoming,
   getCategoryColor,
@@ -111,10 +122,38 @@ export default function Home() {
       </section>
 
       {/* ============================================================ */}
+      {/* 世界観テキスト (Hero 直下・SOU GROUP 流) */}
+      {/* ============================================================ */}
+      <section className="relative bg-white px-6 md:px-10 py-20 md:py-28 overflow-hidden">
+        <HandSquiggle color="#FFD647" className="absolute top-10 right-[5%]" size={80} />
+        <HandStar color="#FF4FB0" className="absolute bottom-12 left-[8%]" size={50} />
+        <HandDots color="#2D8BFF" className="absolute top-1/2 right-[10%]" size={70} />
+
+        <div className="relative max-w-3xl mx-auto text-center">
+          <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-5">
+            Our Thought
+          </p>
+          <p className="text-2xl md:text-4xl lg:text-5xl font-black leading-[1.4]">
+            「楽しい」は、
+            <br />
+            <span className="bg-[#FFD647] px-2">心の医療</span>
+            になる。
+          </p>
+          <p className="text-base md:text-lg leading-loose text-[color:var(--color-text-muted)] mt-10 max-w-xl mx-auto">
+            こどもから高齢者まで、すべての人が自分らしく息をする社会へ。
+            私たちはレクリエーションを起点に、医療・福祉・保育・介護・スポーツが手を取り合う未来をつくります。
+          </p>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/* 唯一性メトリック — 黒帯で印象強く */}
       {/* ============================================================ */}
-      <section className="bg-black text-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24">
+      <section className="relative bg-black text-white overflow-hidden">
+        <HandSun color="#FFD647" className="absolute top-8 right-8 opacity-90" size={70} />
+        <HandHeart color="#FF4FB0" className="absolute bottom-12 right-[20%]" size={45} />
+
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <div>
               <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[#FFD647] font-bold mb-3">
@@ -156,8 +195,12 @@ export default function Home() {
       {/* ============================================================ */}
       {/* なぜレクリエーション福祉が必要か — 4 ベネフィット (charity:water Why Water? に相当) */}
       {/* ============================================================ */}
-      <section className="bg-white px-6 md:px-10 py-20 md:py-28">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative bg-white px-6 md:px-10 py-20 md:py-28 overflow-hidden">
+        <HandLeaf color="#4FC04F" className="absolute top-16 right-[6%]" size={60} />
+        <HandSparkle color="#FFD647" className="absolute top-1/2 left-[5%]" size={50} />
+        <HandBlob color="#9B5BFF" className="absolute bottom-12 right-[8%] opacity-80" size={70} />
+
+        <div className="relative max-w-6xl mx-auto">
           <div className="max-w-2xl mb-14 md:mb-20">
             <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-4">
               Why Recreation Welfare?
@@ -191,8 +234,13 @@ export default function Home() {
       {/* ============================================================ */}
       {/* 月 1 回・両資格の単位が同時に — LVN の最大の効率性メリット */}
       {/* ============================================================ */}
-      <section className="bg-[#FFD647] px-6 md:px-10 py-20 md:py-28 border-t-2 border-black border-b-2">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-16 items-center">
+      <section className="relative bg-[#FFD647] px-6 md:px-10 py-20 md:py-28 border-t-2 border-black border-b-2 overflow-hidden">
+        <HandStar color="#FF4FB0" className="absolute top-8 right-[8%]" size={60} />
+        <HandDots color="#2D8BFF" className="absolute top-12 left-[6%]" size={70} />
+        <HandArrow color="#000" className="absolute bottom-10 right-[15%]" size={70} />
+        <HandSquiggle color="#FF5A5A" className="absolute bottom-16 left-[8%]" size={100} />
+
+        <div className="relative max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-16 items-center">
           <div className="text-center">
             <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase font-black mb-4">
               Monthly Session
@@ -255,8 +303,11 @@ export default function Home() {
       {/* ============================================================ */}
       {/* 6 活動 — 横スクロール */}
       {/* ============================================================ */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 mb-12 md:mb-14">
+      <section className="relative bg-white py-20 md:py-28 overflow-hidden">
+        <HandHeart color="#FF4FB0" className="absolute top-20 right-[5%]" size={50} />
+        <HandLeaf color="#4FC04F" className="absolute bottom-8 left-[6%]" size={60} />
+
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10 mb-12 md:mb-14">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
               <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-3">
@@ -447,10 +498,48 @@ export default function Home() {
       </section>
 
       {/* ============================================================ */}
+      {/* 仲間募集 (SOU GROUP 流の採用バナー) */}
+      {/* ============================================================ */}
+      <section className="relative bg-black text-white px-6 md:px-10 py-20 md:py-28 overflow-hidden">
+        <HandSun color="#FFD647" className="absolute top-10 right-10" size={60} />
+        <HandStar color="#FF4FB0" className="absolute bottom-12 left-[6%]" size={50} />
+        <HandDots color="#FFD647" className="absolute bottom-20 right-[8%]" size={60} />
+
+        <div className="relative max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
+          <div>
+            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[#FFD647] font-bold mb-4">
+              Join Us
+            </p>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight mb-4">
+              一緒に、未来をつくる
+              <br />
+              仲間を募集しています。
+            </h2>
+            <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-xl">
+              レクリエーション活動の実践者、講師、運営スタッフ、ボランティア。
+              さまざまな関わり方で、社会を変えていく仲間を探しています。
+            </p>
+          </div>
+          <Link
+            href="/contact/"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#FFD647] text-black font-black hover:scale-105 transition-transform shadow-2xl whitespace-nowrap"
+          >
+            <UserPlus className="w-5 h-5" />
+            問い合わせる
+          </Link>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/* 最終 CTA — charity:water 流: 黄ボタンで締める */}
       {/* ============================================================ */}
-      <section className="bg-white px-6 md:px-10 py-24 md:py-32 border-t border-[color:var(--color-border)]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative bg-white px-6 md:px-10 py-24 md:py-32 border-t border-[color:var(--color-border)] overflow-hidden">
+        <HandSparkle color="#FFD647" className="absolute top-16 left-[10%]" size={50} />
+        <HandHeart color="#FF4FB0" className="absolute top-1/2 right-[8%]" size={45} />
+        <HandSquiggle color="#2D8BFF" className="absolute bottom-12 left-[5%]" size={90} />
+        <HandStar color="#FFA235" className="absolute bottom-16 right-[6%]" size={45} />
+
+        <div className="relative max-w-3xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-black leading-tight mb-6">
             あなたも、
             <br />

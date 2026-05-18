@@ -67,15 +67,23 @@ export default function Home() {
   return (
     <div>
       {/* === デザイン比較バナー (一時的・決定後に削除) === */}
-      <div className="bg-black text-white px-4 py-3 text-center text-xs md:text-sm font-bold flex flex-wrap items-center justify-center gap-2 md:gap-4">
-        <span className="font-mono tracking-wider opacity-70">DESIGN COMPARE</span>
-        <Link href="/preview-a/" className="inline-flex items-center gap-1 bg-[#FFD647] text-black px-3 py-1 rounded-full font-black hover:scale-105 transition-transform">
-          A: SOU GROUP 寄せ
+      <div className="bg-black text-white px-4 py-3 text-center text-xs md:text-sm font-bold flex flex-wrap items-center justify-center gap-2 md:gap-3">
+        <span className="font-mono tracking-wider opacity-70">B 配色バリエーション →</span>
+        <Link href="/preview-b-warm/" className="inline-flex items-center gap-1 bg-[#FF8552] text-[#1F1612] px-3 py-1 rounded-full font-black hover:scale-105 transition-transform">
+          🟠 Warm
         </Link>
-        <Link href="/preview-b/" className="inline-flex items-center gap-1 bg-white text-black px-3 py-1 rounded-full font-black hover:scale-105 transition-transform">
-          B: スタイリッシュ最先端
+        <Link href="/preview-b-natural/" className="inline-flex items-center gap-1 bg-[#3D9B7A] text-white px-3 py-1 rounded-full font-black hover:scale-105 transition-transform">
+          🟢 Natural
         </Link>
-        <span className="opacity-50 hidden md:inline">← 現在は中間バージョン</span>
+        <Link href="/preview-b-bloom/" className="inline-flex items-center gap-1 bg-[#FF4FB0] text-white px-3 py-1 rounded-full font-black hover:scale-105 transition-transform">
+          🌸 Bloom
+        </Link>
+        <Link href="/preview-b/" className="inline-flex items-center gap-1 bg-[#FFD647] text-black px-3 py-1 rounded-full font-black hover:scale-105 transition-transform">
+          🟡 Yellow (旧)
+        </Link>
+        <Link href="/preview-a/" className="inline-flex items-center gap-1 bg-white/20 text-white px-3 py-1 rounded-full font-bold hover:scale-105 transition-transform">
+          A: SOU 寄せ
+        </Link>
       </div>
       {/* ============================================================ */}
       {/* HERO — charity:water 流: フルブリード写真 + H1 1 文 + 黄 CTA 1 つ */}

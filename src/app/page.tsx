@@ -12,6 +12,12 @@ import {
   formatTime,
   formatDayOfWeek,
 } from "@/data/events";
+import {
+  getLatestNews,
+  getCategoryColor as getNewsColor,
+  getCategoryLabel as getNewsLabel,
+  formatPublishedDate,
+} from "@/data/news";
 
 /**
  * charity:water 流 TOP 構成。
@@ -45,6 +51,7 @@ const benefits = [
 
 export default function Home() {
   const upcomingEvents = getFeaturedUpcoming(3);
+  const latestNews = getLatestNews(3);
 
   return (
     <div>
@@ -369,18 +376,72 @@ export default function Home() {
       </section>
 
       {/* ============================================================ */}
-      {/* 受講者の声 — placeholder (Phase 3 で microCMS から) */}
+      {/* 最新お知らせ */}
       {/* ============================================================ */}
       <section className="bg-[#FAFAFA] px-6 md:px-10 py-20 md:py-28">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10 md:mb-14">
-            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-3">
-              Voices
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black">受講者の声</h2>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
+            <div>
+              <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-3">
+                Latest News
+              </p>
+              <h2 className="text-4xl md:text-5xl font-black leading-tight">
+                最新のお知らせ。
+              </h2>
+            </div>
+            <Link
+              href="/news/"
+              className="inline-flex items-center gap-1 text-sm font-black hover:underline"
+            >
+              すべて見る <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-          <div className="max-w-2xl mx-auto text-center py-12 px-8 rounded-2xl bg-white border border-[color:var(--color-border)] text-sm text-[color:var(--color-text-muted)]">
-            🚧 受講者・修了生の声は Phase 3 で実装予定 (microCMS 接続後)
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {latestNews.map((n) => {
+              const color = getNewsColor(n.category);
+              return (
+                <Link
+                  key={n.id}
+                  href={`/news/${n.id}/`}
+                  className="group block bg-white rounded-2xl border border-[color:var(--color-border)] hover:border-black hover:shadow-lg transition-all overflow-hidden"
+                >
+                  <div className="relative aspect-[16/9] bg-gray-100 overflow-hidden">
+                    {n.coverUrl ? (
+                      <Image
+                        src={n.coverUrl}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full" style={{ background: color }} />
+                    )}
+                    <div className="absolute top-3 left-3">
+                      <span
+                        className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-black border-2 border-black"
+                        style={{ background: color, color: "#000" }}
+                      >
+                        <Tag className="w-3 h-3" />
+                        {getNewsLabel(n.category)}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5 md:p-6">
+                    <p className="text-xs font-bold text-[color:var(--color-text-muted)] mb-2 font-mono">
+                      {formatPublishedDate(n.publishedAt)}
+                    </p>
+                    <h3 className="text-lg md:text-xl font-black mb-2 group-hover:underline leading-tight">
+                      {n.title}
+                    </h3>
+                    <p className="text-sm text-[color:var(--color-text-muted)] leading-relaxed line-clamp-2">
+                      {n.summary}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

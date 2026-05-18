@@ -1,10 +1,7 @@
-import BlobBackground from "@/components/decorations/BlobBackground";
-import SquiggleUnderline from "@/components/decorations/SquiggleUnderline";
-import WaveDivider from "@/components/decorations/WaveDivider";
-import StatsBanner from "@/components/StatsBanner";
-import UspBadge from "@/components/UspBadge";
+import Image from "next/image";
+import Link from "next/link";
 import { lvnInfo } from "@/data/lvn-info";
-import { Stethoscope, HandHeart, Baby, Activity, Dumbbell, MapPin, Mail, Phone, Building2 } from "lucide-react";
+import { Stethoscope, HandHeart, Baby, Activity, Dumbbell, ArrowRight } from "lucide-react";
 
 const roles = [
   { ja: "医療", en: "Medical", hex: "#2D8BFF", icon: Stethoscope },
@@ -33,91 +30,76 @@ const corporateInfo = [
 export default function AboutPage() {
   return (
     <div>
-      {/* ============ Hero ============ */}
-      <section className="relative overflow-hidden">
-        <BlobBackground />
-        <div className="relative px-4 md:px-6 pt-16 md:pt-28 pb-20 md:pb-28 text-center">
-          <div className="flex justify-center mb-8 animate-fade-up">
-            <UspBadge />
+      {/* ============ Hero — フルブリード写真 ============ */}
+      <section className="relative h-[70vh] md:h-[80vh] min-h-[500px] overflow-hidden bg-[#1a1a1a]">
+        <Image
+          src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=2400&q=85&auto=format&fit=crop"
+          alt="多世代が手を取り合うコミュニティ"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-85"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/70" />
+        <div className="relative h-full flex items-end">
+          <div className="w-full max-w-7xl mx-auto px-6 md:px-10 pb-12 md:pb-20 text-white">
+            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-white/80 font-bold mb-4">
+              About Us
+            </p>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] max-w-4xl">
+              関わるすべての人が、
+              <br />
+              幸福に暮らす社会へ。
+            </h1>
           </div>
-          <p
-            className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] mb-3 font-bold animate-fade-up"
-          >
-            About Us
+        </div>
+      </section>
+
+      {/* ============ ミッション ============ */}
+      <section className="bg-white px-6 md:px-10 py-20 md:py-28">
+        <div className="max-w-3xl mx-auto">
+          <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-5">
+            Our Mission
           </p>
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[0.95] animate-fade-up"
-            style={{ animationDelay: "0.1s" }}
-          >
-            関わるすべての人が、
+          <h2 className="text-3xl md:text-5xl font-black leading-tight mb-8">
+            多職種連携 × レクリエーション。
+          </h2>
+          <p className="text-base md:text-lg leading-loose text-[color:var(--color-text-muted)]">
+            一般社団法人 Life Vision NetWork (LVN) は、医療・福祉・保育・介護・スポーツの専門領域がレクリエーション活動を中心に据えながら連携し、それぞれの専門性を高めつつ、互いの職種への理解を深め、垣根を越えて多職種連携を図ります。
             <br />
-            <span className="bg-gradient-to-r from-[#FF4FB0] via-[#9B5BFF] to-[#2D8BFF] bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
-              幸福に暮らす社会へ
-            </span>
-          </h1>
-          <p
-            className="text-base md:text-lg leading-loose max-w-3xl mx-auto text-[color:var(--color-text-muted)] animate-fade-up"
-            style={{ animationDelay: "0.2s" }}
-          >
-            一般社団法人 Life Vision NetWork (LVN) は、
-            医療・福祉・保育・介護・スポーツの専門領域が
-            レクリエーション活動を中心に据えながら連携し、
-            支援のあり方を共に考える組織です。
+            <br />
+            科学的根拠 (エビデンス) に基づいた実践を通じて、支援のあり方を共に考え、常に進化し続ける組織を目指します。
           </p>
         </div>
-        <WaveDivider fill="#FAFAFA" />
       </section>
 
-      {/* ============ 実績数字 ============ */}
-      <section className="relative px-4 md:px-6 py-16 md:py-24 bg-[#FAFAFA]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 md:mb-14">
-            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-3">
-              By the Numbers
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black">LVN を数字で。</h2>
-          </div>
-          <StatsBanner />
-        </div>
-      </section>
-
-      {/* ============ 多職種連携 5 職種 ============ */}
-      <section className="relative px-4 md:px-6 py-20 md:py-28">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14 md:mb-20">
-            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-lvn-blue)] font-bold mb-3">
-              5 Professions
-            </p>
-            <h2 className="inline-block relative text-3xl md:text-4xl font-black mb-5">
-              多職種連携が、社会の土台に
-              <SquiggleUnderline color="#2D8BFF" className="absolute -bottom-3 left-0" />
-            </h2>
-            <p className="text-sm md:text-base text-[color:var(--color-text-muted)] mt-6 max-w-2xl mx-auto leading-relaxed">
-              5 つの専門領域が手を取り合い、それぞれの強みを活かして「心を元気にする」社会を目指します。
+      {/* ============ 5 職種 (黒帯) ============ */}
+      <section className="bg-black text-white px-6 md:px-10 py-20 md:py-28">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-16 mb-12 md:mb-16">
+            <div>
+              <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[#FFD647] font-bold mb-4">
+                5 Professions
+              </p>
+              <h2 className="text-3xl md:text-5xl font-black leading-tight">
+                5 つの専門が、
+                <br />
+                ひとつになる。
+              </h2>
+            </div>
+            <p className="text-base md:text-lg leading-relaxed text-white/80 md:pt-4">
+              医療・福祉・保育・介護・スポーツ。普段は別々に動く 5 つの専門領域が、レクリエーションを共通言語に連携します。それぞれの強みを活かしながら、「心を元気にする」社会を共に作っていきます。
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5">
-            {roles.map((role, i) => {
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+            {roles.map((role) => {
               const Icon = role.icon;
               return (
-                <div
-                  key={role.ja}
-                  className="group relative bg-white rounded-3xl p-6 text-center border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all overflow-hidden animate-fade-up"
-                  style={{ animationDelay: `${i * 0.08}s` }}
-                >
-                  <div
-                    className="absolute -top-10 -right-10 w-28 h-28 rounded-full opacity-15 group-hover:opacity-30 group-hover:scale-125 transition-all duration-500"
-                    style={{ background: role.hex }}
-                  />
-                  <div
-                    className="relative w-14 h-14 md:w-16 md:h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center text-white border-2 border-black group-hover:rotate-[-6deg] transition-transform"
-                    style={{ background: role.hex }}
-                  >
-                    <Icon className="w-7 h-7 md:w-8 md:h-8" strokeWidth={2.2} />
-                  </div>
-                  <div className="relative font-black text-lg md:text-xl">{role.ja}</div>
-                  <div className="relative font-[var(--font-poppins)] text-xs text-[color:var(--color-text-muted)] mt-1 tracking-wider">
+                <div key={role.ja} className="border-t-2 pt-5" style={{ borderColor: role.hex }}>
+                  <Icon className="w-8 h-8 mb-4" style={{ color: role.hex }} strokeWidth={2.2} />
+                  <div className="font-black text-xl md:text-2xl">{role.ja}</div>
+                  <div className="font-[var(--font-poppins)] text-xs text-white/60 mt-1 tracking-wider">
                     {role.en}
                   </div>
                 </div>
@@ -127,29 +109,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ============ 大切な言葉 ============ */}
-      <section className="px-4 md:px-6 py-20 md:py-28 bg-[#FAFAFA]">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-lvn-pink)] font-bold mb-3">
+      {/* ============ 大切にしている言葉 ============ */}
+      <section className="bg-[#FAFAFA] px-6 md:px-10 py-20 md:py-28">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-2xl mb-14 md:mb-20">
+            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-4">
               Our Values
             </p>
-            <h2 className="text-3xl md:text-4xl font-black">大切にしている言葉</h2>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight">
+              大切にしている言葉。
+            </h2>
           </div>
 
-          <div className="space-y-6 md:space-y-8">
-            {catches.map((c, i) => (
+          <div className="space-y-4 md:space-y-6">
+            {catches.map((c) => (
               <div
                 key={c.title}
-                className="relative bg-white rounded-3xl p-7 md:p-10 border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] overflow-hidden animate-fade-up"
-                style={{ animationDelay: `${i * 0.05}s` }}
+                className="relative bg-white rounded-2xl p-8 md:p-10 border border-[color:var(--color-border)] hover:border-black transition-colors overflow-hidden grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-8 items-start"
               >
-                <div className="absolute top-0 left-0 w-2 h-full" style={{ background: c.hex }} />
-                <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full opacity-10" style={{ background: c.hex }} />
-                <h3 className="relative text-2xl md:text-3xl font-black mb-3" style={{ color: c.hex }}>
-                  {c.title}
-                </h3>
-                <p className="relative text-base md:text-lg leading-relaxed whitespace-pre-line">
+                <div className="md:border-r md:border-[color:var(--color-border)] md:pr-8">
+                  <div className="w-12 h-1 mb-3" style={{ background: c.hex }} />
+                  <h3 className="text-2xl md:text-3xl font-black" style={{ color: c.hex }}>
+                    {c.title}
+                  </h3>
+                </div>
+                <p className="text-base md:text-lg leading-relaxed whitespace-pre-line">
                   {c.body}
                 </p>
               </div>
@@ -158,79 +142,52 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ============ 法人情報 (信頼性担保) ============ */}
-      <section className="px-4 md:px-6 py-20 md:py-28">
+      {/* ============ 法人情報 (シンプル dl) ============ */}
+      <section className="bg-white px-6 md:px-10 py-20 md:py-28">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14 md:mb-16">
-            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-lvn-purple)] font-bold mb-3">
-              Corporate Information
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black flex items-center justify-center gap-3">
-              <Building2 className="w-8 h-8 md:w-10 md:h-10" />
-              法人情報
-            </h2>
-          </div>
+          <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-4">
+            Corporate Information
+          </p>
+          <h2 className="text-3xl md:text-5xl font-black leading-tight mb-12">
+            法人情報
+          </h2>
 
-          <div className="bg-white rounded-3xl border-2 border-black shadow-[5px_5px_0_0_rgba(0,0,0,1)] overflow-hidden">
-            <dl>
-              {corporateInfo.map((item, i) => (
-                <div
-                  key={item.label}
-                  className={`grid grid-cols-[120px_1fr] md:grid-cols-[180px_1fr] ${
-                    i > 0 ? "border-t-2 border-black" : ""
-                  }`}
-                >
-                  <dt className="p-4 md:p-5 bg-[#FAFAFA] font-black text-sm md:text-base border-r-2 border-black">
-                    {item.label}
-                  </dt>
-                  <dd className="p-4 md:p-5 text-sm md:text-base">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+          <dl className="border-t-2 border-black">
+            {corporateInfo.map((item) => (
+              <div
+                key={item.label}
+                className="grid grid-cols-[120px_1fr] md:grid-cols-[200px_1fr] border-b border-[color:var(--color-border)]"
+              >
+                <dt className="py-5 md:py-6 font-black text-sm md:text-base">{item.label}</dt>
+                <dd className="py-5 md:py-6 text-sm md:text-base leading-relaxed">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      {/* ============ アクセス / 連絡先 ============ */}
-      <section className="px-4 md:px-6 py-20 md:py-28 bg-[#FAFAFA]">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14 md:mb-16">
-            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-lvn-green)] font-bold mb-3">
-              Access & Contact
-            </p>
-            <h2 className="text-3xl md:text-4xl font-black">アクセス・連絡先</h2>
+      {/* ============ CTA ============ */}
+      <section className="bg-white px-6 md:px-10 pb-24 md:pb-32">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-black leading-tight mb-8">
+            私たちと一緒に、
+            <br />
+            社会を変えていこう。
+          </h2>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link
+              href="/qualification/"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#FFD647] text-black font-black hover:scale-105 transition-transform"
+            >
+              資格を取得する <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="/contact/"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full border-2 border-black text-black font-bold hover:bg-black hover:text-white transition-colors"
+            >
+              お問い合わせ
+            </Link>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              { icon: MapPin, label: "所在地", value: lvnInfo.address, hex: "#FF5A5A" },
-              { icon: Phone, label: "電話", value: lvnInfo.phone, hex: "#2D8BFF" },
-              { icon: Mail, label: "メール", value: lvnInfo.email, hex: "#9B5BFF" },
-            ].map((c) => {
-              const Icon = c.icon;
-              return (
-                <div
-                  key={c.label}
-                  className="bg-white rounded-2xl border-2 border-black p-6 shadow-[4px_4px_0_0_rgba(0,0,0,1)]"
-                >
-                  <div
-                    className="w-12 h-12 rounded-2xl border-2 border-black flex items-center justify-center text-white mb-4"
-                    style={{ background: c.hex }}
-                  >
-                    <Icon className="w-6 h-6" strokeWidth={2.2} />
-                  </div>
-                  <p className="text-xs font-black text-[color:var(--color-text-muted)] mb-1 tracking-wider">
-                    {c.label}
-                  </p>
-                  <p className="text-sm font-bold">{c.value}</p>
-                </div>
-              );
-            })}
-          </div>
-
-          <p className="text-xs text-center text-[color:var(--color-text-muted)] mt-6">
-            🚧 詳細な所在地・連絡先・地図は Phase 3 で本実装予定
-          </p>
         </div>
       </section>
     </div>

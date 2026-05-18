@@ -6,17 +6,22 @@ export const metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="px-4 md:px-6 pt-16 md:pt-24 pb-20 md:pb-28">
-      <article className="max-w-3xl mx-auto">
-        <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-3">
-          Privacy Policy
-        </p>
-        <h1 className="text-3xl md:text-5xl font-black mb-8 leading-tight">
-          プライバシーポリシー
-        </h1>
-        <p className="text-sm text-[color:var(--color-text-muted)] mb-10">
-          最終更新: 2026 年 5 月 18 日
-        </p>
+    <div>
+      <section className="bg-white px-6 md:px-10 pt-16 md:pt-24 pb-12 md:pb-16">
+        <div className="max-w-3xl mx-auto">
+          <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-4">
+            Privacy Policy
+          </p>
+          <h1 className="text-4xl md:text-6xl font-black leading-[0.95] mb-6">
+            プライバシーポリシー。
+          </h1>
+          <p className="text-sm text-[color:var(--color-text-muted)] font-mono">
+            最終更新: 2026.05.18
+          </p>
+        </div>
+      </section>
+      <article className="bg-white max-w-3xl mx-auto px-6 md:px-10 pb-20 md:pb-28">
+        <div style={{ display: "none" }}>__placeholder__</div>
 
         <div className="prose prose-sm md:prose-base max-w-none space-y-8 text-[color:var(--color-text)] leading-relaxed">
           <section>
@@ -91,3 +96,4 @@ export default function PrivacyPolicyPage() {
     </div>
   );
 }
+

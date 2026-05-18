@@ -66,6 +66,17 @@ export default function Home() {
 
   return (
     <div>
+      {/* === デザイン比較バナー (一時的・決定後に削除) === */}
+      <div className="bg-black text-white px-4 py-3 text-center text-xs md:text-sm font-bold flex flex-wrap items-center justify-center gap-2 md:gap-4">
+        <span className="font-mono tracking-wider opacity-70">DESIGN COMPARE</span>
+        <Link href="/preview-a/" className="inline-flex items-center gap-1 bg-[#FFD647] text-black px-3 py-1 rounded-full font-black hover:scale-105 transition-transform">
+          A: SOU GROUP 寄せ
+        </Link>
+        <Link href="/preview-b/" className="inline-flex items-center gap-1 bg-white text-black px-3 py-1 rounded-full font-black hover:scale-105 transition-transform">
+          B: スタイリッシュ最先端
+        </Link>
+        <span className="opacity-50 hidden md:inline">← 現在は中間バージョン</span>
+      </div>
       {/* ============================================================ */}
       {/* HERO — charity:water 流: フルブリード写真 + H1 1 文 + 黄 CTA 1 つ */}
       {/* ============================================================ */}

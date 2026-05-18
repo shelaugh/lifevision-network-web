@@ -116,10 +116,10 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 gap-6 md:col-span-2 md:gap-10">
               {[
-                { value: "2", suffix: "種", label: "公認指導者資格を取得可能" },
+                { value: "2", suffix: "種", label: "公認指導者資格から選んで取得" },
+                { value: "月1", suffix: "回", label: "両資格どちらの単位にもなる講習会" },
                 { value: "5", suffix: "職種", label: "医療・福祉・保育・介護・スポーツ" },
                 { value: "6", suffix: "つ", label: "実践活動領域で取得後すぐデビュー" },
-                { value: "1", suffix: "", label: "日本で唯一の民間団体" },
               ].map((m) => (
                 <div key={m.label} className="border-l-2 border-[#FFD647] pl-5">
                   <p className="font-black text-5xl md:text-7xl leading-none">
@@ -167,6 +167,44 @@ export default function Home() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 月 1 回・両資格の単位が同時に — LVN の最大の効率性メリット */}
+      {/* ============================================================ */}
+      <section className="bg-[#FFD647] px-6 md:px-10 py-20 md:py-28 border-t-2 border-black border-b-2">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-16 items-center">
+          <div className="text-center">
+            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase font-black mb-4">
+              Monthly Session
+            </p>
+            <p className="font-black leading-none">
+              <span className="block text-7xl md:text-9xl lg:text-[12rem]">月1</span>
+              <span className="block text-2xl md:text-3xl mt-2">回開催</span>
+            </p>
+          </div>
+          <div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight mb-5">
+              2 資格、どちらを選んでも、
+              <br />
+              ここで取れる。
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed mb-6">
+              月 1 回の講習会は、
+              <strong>レクリエーションインストラクター</strong>
+              または
+              <strong>スポーツ・レクリエーション指導者</strong>
+              のどちらかの単位として認定されます。あなたが目指す資格を選んで参加できます。
+            </p>
+            <Link
+              href="/schedule/"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black text-[#FFD647] font-black hover:scale-105 transition-transform"
+            >
+              講習会スケジュールを見る
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>

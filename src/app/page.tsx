@@ -3,7 +3,15 @@ import Image from "next/image";
 import { activities } from "@/data/activities";
 import { lvnInfo } from "@/data/lvn-info";
 import ActivityIcon from "@/components/decorations/ActivityIcon";
-import { ArrowRight, Heart, Sprout, Users2, Sparkles } from "lucide-react";
+import { ArrowRight, Heart, Sprout, Users2, Sparkles, MapPin, Tag } from "lucide-react";
+import {
+  getFeaturedUpcoming,
+  getCategoryColor,
+  getCategoryLabel,
+  formatDate,
+  formatTime,
+  formatDayOfWeek,
+} from "@/data/events";
 
 /**
  * charity:water 流 TOP 構成。
@@ -36,6 +44,8 @@ const benefits = [
 ];
 
 export default function Home() {
+  const upcomingEvents = getFeaturedUpcoming(3);
+
   return (
     <div>
       {/* ============================================================ */}
@@ -281,6 +291,80 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 次のイベント (直近 3 件・ハードコード・後で microCMS) */}
+      {/* ============================================================ */}
+      <section className="bg-white px-6 md:px-10 py-20 md:py-28 border-t border-[color:var(--color-border)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
+            <div>
+              <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-[color:var(--color-text-muted)] font-bold mb-3">
+                Upcoming Events
+              </p>
+              <h2 className="text-4xl md:text-5xl font-black leading-tight">
+                次のイベント。
+              </h2>
+            </div>
+            <Link
+              href="/schedule/"
+              className="inline-flex items-center gap-1 text-sm font-black hover:underline"
+            >
+              すべてのスケジュールを見る <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {upcomingEvents.length === 0 ? (
+            <p className="text-center text-[color:var(--color-text-muted)] py-12">
+              現在予定されているイベントはありません。
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7">
+              {upcomingEvents.map((event) => {
+                const color = getCategoryColor(event.category);
+                return (
+                  <Link
+                    key={event.id}
+                    href={`/events/${event.id}/`}
+                    className="group block bg-white rounded-2xl border border-[color:var(--color-border)] overflow-hidden hover:border-black hover:shadow-lg transition-all"
+                  >
+                    {/* 日付ヘッダ */}
+                    <div
+                      className="px-6 py-4 border-b border-[color:var(--color-border)]"
+                      style={{ background: color }}
+                    >
+                      <p className="font-black text-2xl leading-none">
+                        {formatDate(event.startAt).split(".").slice(1).join(".")}
+                      </p>
+                      <p className="text-xs font-bold mt-1">
+                        {formatDate(event.startAt).split(".")[0]} ({formatDayOfWeek(event.startAt)}){" "}
+                        {formatTime(event.startAt)}
+                      </p>
+                    </div>
+                    {/* メイン */}
+                    <div className="p-6">
+                      <div className="flex items-center gap-1 text-xs font-black text-[color:var(--color-text-muted)] mb-2">
+                        <Tag className="w-3 h-3" />
+                        {getCategoryLabel(event.category)}
+                      </div>
+                      <h3 className="text-lg md:text-xl font-black mb-2 group-hover:underline leading-tight">
+                        {event.title}
+                      </h3>
+                      <p className="text-sm text-[color:var(--color-text-muted)] leading-relaxed mb-4 line-clamp-2">
+                        {event.summary}
+                      </p>
+                      <div className="flex items-center gap-1 text-xs text-[color:var(--color-text-muted)]">
+                        <MapPin className="w-3.5 h-3.5" />
+                        {event.location}
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 

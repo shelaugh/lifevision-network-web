@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${zenMaru.variable} ${poppins.variable} min-h-full flex flex-col pb-14 md:pb-0`}>
+      <body className={`${zenMaru.variable} ${poppins.variable} min-h-full flex flex-col pb-14 md:pb-0`} style={{ background: "#FFFAF0", color: "#2A1F1A" }}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

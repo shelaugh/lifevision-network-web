@@ -1,28 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, MessageCircle } from "lucide-react";
+import { Coffee, Mail } from "lucide-react";
+import { CRAFT } from "@/lib/craft";
 
 /**
  * モバイルのみ表示される下部固定 CTA バー。
- * SOU GROUP 流: LINE / メール 2 ボタン。
+ * Craft × Pop palette · なごみカフェ + 問い合わせ 2 ボタン。
  */
 export default function MobileBottomCTA() {
   return (
-    <div className="fixed bottom-0 inset-x-0 z-40 md:hidden grid grid-cols-2 border-t-2 border-black">
+    <div className="fixed bottom-0 inset-x-0 z-40 md:hidden grid grid-cols-2 backdrop-blur-md" style={{ background: "rgba(255,250,240,0.95)", borderTop: "1px solid rgba(42,31,26,0.08)" }}>
       <Link
-        href="/contact/"
-        className="flex items-center justify-center gap-2 bg-black text-white py-4 font-black text-sm"
+        href="/nagomi-cafe/"
+        className="flex items-center justify-center gap-2 py-4 font-bold text-sm"
+        style={{ background: CRAFT.LIME, color: CRAFT.INK }}
       >
-        <Mail className="w-4 h-4" />
-        お問い合わせ
+        <Coffee className="w-4 h-4" strokeWidth={2.5} />
+        なごみカフェ
       </Link>
       <Link
-        href="/qualification/"
-        className="flex items-center justify-center gap-2 bg-[#FFD647] text-black py-4 font-black text-sm"
+        href="/contact/"
+        className="flex items-center justify-center gap-2 py-4 font-bold text-sm"
+        style={{ background: CRAFT.INK, color: CRAFT.BG }}
       >
-        <MessageCircle className="w-4 h-4" />
-        資格相談
+        <Mail className="w-4 h-4" />
+        問い合わせ
       </Link>
     </div>
   );

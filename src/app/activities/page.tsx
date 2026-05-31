@@ -1,75 +1,96 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Sparkles, Coffee } from "lucide-react";
 import { activities } from "@/data/activities";
-import ActivityIcon from "@/components/decorations/ActivityIcon";
-import { ArrowRight } from "lucide-react";
-import { HandStar, HandSquiggle, HandLeaf, HandHeart as DecoHeart } from "@/components/decorations/HandDrawn";
+import { CRAFT, EASE } from "@/lib/craft";
+import { PageHero } from "@/components/craft/PageHero";
 
 export default function ActivitiesPage() {
   return (
-    <div>
-      {/* ============ Hero ============ */}
-      <section className="relative h-[60vh] md:h-[70vh] min-h-[450px] overflow-hidden bg-[#1a1a1a]">
-        <Image
-          src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=2400&q=85&auto=format&fit=crop"
-          alt="多様な活動で集う人々"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-85"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70" />
-        <div className="relative h-full flex items-end">
-          <div className="w-full max-w-7xl mx-auto px-6 md:px-10 pb-12 md:pb-20 text-white">
-            <p className="font-[var(--font-poppins)] text-xs md:text-sm tracking-[0.3em] uppercase text-white/80 font-bold mb-4">
-              Our Activities
-            </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95]">
-              5 団体の活動。
-            </h1>
-            <p className="text-base md:text-lg leading-relaxed mt-6 max-w-2xl opacity-90">
-              レクリエーションを軸に、多職種が連携して取り組む 5 つの団体活動。
-              <br />
-              なんでも福祉相談室「<Link href="/nagomi-cafe/" className="underline font-bold">なごみカフェ</Link>」は、月 1 講習会と同日午前に別軸で開催しています。
-            </p>
-          </div>
+    <div style={{ background: CRAFT.BG, color: CRAFT.INK }} className="font-sans">
+      <PageHero
+        eyebrow="Pillar 03 · 5 団体の活動"
+        eyebrowIcon={Sparkles}
+        eyebrowColor={CRAFT.SKY}
+        title={
+          <>
+            5 つの団体が、<br />
+            <span style={{ background: `linear-gradient(135deg, ${CRAFT.SKY}, ${CRAFT.LIME})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>地域のすき間を埋める。</span>
+          </>
+        }
+        subtitle={
+          <>
+            それぞれの現場で、それぞれのレクリエーションを。
+            <br />
+            なんでも福祉相談室「<Link href="/nagomi-cafe/" className="underline font-bold inline-flex items-center gap-1" style={{ color: CRAFT.LIME_DARK }}><Coffee className="w-4 h-4" /> なごみカフェ</Link>」は、月 1 講習会と同日午前に別軸で開催しています。
+          </>
+        }
+      />
+
+      {/* 5 団体グリッド */}
+      <section className="px-6 md:px-12 py-12 md:py-20 max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
+          {activities.map((a, i) => (
+            <motion.div
+              key={a.slug}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: EASE }}
+              whileHover={{ y: -8, rotate: i % 2 === 0 ? -1 : 1 }}
+            >
+              <Link
+                href={`/activities/${a.slug}/`}
+                className="block rounded-[28px] p-7 md:p-9 relative overflow-hidden h-full group transition-all bg-white"
+                style={{ boxShadow: `0 10px 28px ${a.hex}30` }}
+              >
+                <div className="absolute -right-12 -top-12 w-44 h-44 rounded-full opacity-90" style={{ background: a.hex }} />
+                <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full opacity-30 blur-xl" style={{ background: a.hex }} />
+                <div className="relative">
+                  <div className="w-12 h-12 rounded-2xl mb-6" style={{ background: a.hex, boxShadow: `0 6px 16px ${a.hex}60` }} />
+                  <p className="text-[10px] font-mono uppercase tracking-widest opacity-50 mb-1">0{i + 1} / 05</p>
+                  <p className="font-black text-2xl md:text-3xl leading-tight mb-3">{a.name}</p>
+                  <p className="text-sm leading-relaxed opacity-70">{a.tagline}</p>
+                  <ArrowUpRight className="w-5 h-5 absolute top-0 right-0 opacity-40 group-hover:opacity-100 group-hover:rotate-45 transition-all" />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* ============ 5 団体グリッド ============ */}
-      <section className="relative bg-white px-6 md:px-10 py-20 md:py-28 overflow-hidden">
-        <HandStar color="#FFD647" className="absolute top-10 right-[5%]" size={50} />
-        <HandSquiggle color="#9B5BFF" className="absolute top-1/3 left-[3%]" size={80} />
-        <HandLeaf color="#4FC04F" className="absolute bottom-16 right-[8%]" size={55} />
-        <DecoHeart color="#FF4FB0" className="absolute bottom-32 left-[8%]" size={40} />
-
-        <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {activities.map((activity) => (
-            <Link
-              key={activity.slug}
-              href={`/activities/${activity.slug}/`}
-              className="group block border-t-2 border-black pt-6 hover:opacity-80 transition-opacity"
-            >
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-gray-100">
-                <div
-                  className="absolute inset-0 flex items-center justify-center text-white"
-                  style={{ background: activity.hex }}
-                >
-                  <ActivityIcon slug={activity.slug} className="w-28 h-28" />
-                </div>
-              </div>
-              <h3 className="text-xl md:text-2xl font-black mb-2 group-hover:underline leading-tight">
-                {activity.name}
-              </h3>
-              <p className="text-sm text-[color:var(--color-text-muted)] leading-relaxed mb-4">
-                {activity.tagline}
+      {/* なごみカフェ誘導 */}
+      <section className="px-6 md:px-12 py-20 md:py-32 max-w-[1400px] mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="rounded-[36px] md:rounded-[48px] p-10 md:p-16 relative overflow-hidden"
+          style={{ background: `linear-gradient(135deg, ${CRAFT.LIME} 0%, #88C44A 100%)` }}
+        >
+          <div className="absolute -right-16 -top-16 w-72 h-72 rounded-full opacity-40 blur-2xl" style={{ background: CRAFT.SUN }} />
+          <div className="absolute -left-12 -bottom-12 w-64 h-64 rounded-full opacity-40 blur-2xl" style={{ background: CRAFT.SKY }} />
+          <div className="relative grid md:grid-cols-[1fr_auto] gap-6 md:gap-12 items-center">
+            <div>
+              <p className="inline-flex items-center gap-2 text-xs font-bold mb-5 px-4 py-2 rounded-full bg-white" style={{ color: "#3F7A1F" }}>
+                <Coffee className="w-3.5 h-3.5" /> Pillar 02 · なんでも福祉相談室
               </p>
-              <span className="inline-flex items-center gap-1 text-sm font-black">
-                詳しく見る <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
+              <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight mb-4" style={{ color: CRAFT.INK }}>
+                5 団体活動とは別軸、<br />
+                月 1 同日午前に「なごみカフェ」。
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed opacity-85 max-w-xl" style={{ color: CRAFT.INK }}>
+                資格や所属を問わず、誰でも無料で立ち寄れる地域の福祉相談室。月 1 講習会と同日午前 (10:00 - 12:00) 開催。
+              </p>
+            </div>
+            <Link href="/nagomi-cafe/" className="group inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-sm hover:scale-105 transition-transform whitespace-nowrap" style={{ background: CRAFT.INK, color: CRAFT.BG, boxShadow: "0 12px 30px rgba(42,31,26,0.4)" }}>
+              なごみカフェ詳細 <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
             </Link>
-          ))}
-        </div>
+          </div>
+        </motion.div>
       </section>
     </div>
   );

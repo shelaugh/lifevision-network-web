@@ -1,21 +1,29 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Heart, ArrowUpRight } from "lucide-react";
+import { CRAFT } from "@/lib/craft";
 
 const linkGroups = [
   {
+    title: "メイン事業 (4 pillar)",
+    links: [
+      { href: "/nagomi-cafe/", label: "なごみカフェ" },
+      { href: "/qualification/", label: "月 1 講習会・資格" },
+      { href: "/activities/", label: "5 団体の活動" },
+      { href: "/about/", label: "多職種連携" },
+    ],
+  },
+  {
     title: "サイト",
     links: [
-      { href: "/qualification/", label: "資格を取る" },
-      { href: "/activities/", label: "活動紹介" },
-      { href: "/about/", label: "団体紹介" },
       { href: "/schedule/", label: "スケジュール" },
       { href: "/news/", label: "お知らせ" },
+      { href: "/about/", label: "団体紹介" },
+      { href: "/contact/", label: "お問い合わせ" },
     ],
   },
   {
     title: "サポート",
     links: [
-      { href: "/contact/", label: "お問い合わせ" },
       { href: "/privacy-policy/", label: "プライバシーポリシー" },
       { href: "/terms/", label: "利用規約" },
     ],
@@ -24,44 +32,55 @@ const linkGroups = [
 
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-[color:var(--color-border)] bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16">
+    <footer className="mt-24 relative overflow-hidden" style={{ background: CRAFT.INK, color: CRAFT.BG }}>
+      {/* atmospheric glow */}
+      <div className="absolute -top-1/3 -left-1/4 w-[60%] h-[80%] rounded-full opacity-15 blur-3xl pointer-events-none" style={{ background: CRAFT.CORAL }} aria-hidden />
+      <div className="absolute -bottom-1/3 -right-1/4 w-[60%] h-[80%] rounded-full opacity-15 blur-3xl pointer-events-none" style={{ background: CRAFT.LIME }} aria-hidden />
+
+      <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20">
         {/* タグライン */}
-        <div className="text-center mb-10">
-          <p className="text-lg md:text-2xl font-bold mb-3 leading-relaxed">
-            多職種連携が、社会の土台に
-          </p>
-          <p className="text-xs md:text-sm text-[color:var(--color-text-muted)]">
-            医療・福祉・保育・介護・スポーツが手を取り合う未来。
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="font-black tracking-tighter leading-[0.95] mb-4" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+            楽しいは、<br className="md:hidden" />
+            <span style={{ background: `linear-gradient(135deg, ${CRAFT.CORAL}, ${CRAFT.SUN}, ${CRAFT.LIME})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>最高の医療。</span>
+          </h2>
+          <p className="text-sm md:text-base opacity-70">
+            なごみカフェ + 月 1 講習会 + 5 団体活動 + 多職種連携
           </p>
         </div>
 
         {/* メイン */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-          <div className="md:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-3 mb-4">
-              <Image
-                src="/logo.png"
-                alt="ライフビジョンネット"
-                width={48}
-                height={48}
-                className="w-12 h-12 object-contain"
-              />
-              <span className="font-bold text-base">ライフビジョンネット <span className="text-xs font-medium opacity-60">(NPO 法人申請中)</span></span>
+        <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-8 md:gap-12 mb-14">
+          <div>
+            <Link href="/" className="inline-flex items-center gap-2 mb-5">
+              <span className="w-8 h-8 rounded-full inline-flex items-center justify-center" style={{ background: CRAFT.CORAL, color: CRAFT.BG }}>
+                <Heart className="w-4 h-4 fill-current" />
+              </span>
+              <span className="font-black text-base leading-tight">
+                ライフビジョンネット
+                <span className="block text-[10px] font-medium opacity-60">NPO 法人(申請中)</span>
+              </span>
             </Link>
-            <p className="text-sm text-[color:var(--color-text-muted)] leading-relaxed max-w-md">
+            <p className="text-sm leading-relaxed opacity-70 max-w-md">
               月 1 のなんでも福祉相談室「なごみカフェ」と、資格単位にもなる月 1 講習会、5 団体の活動で、地域と多職種をフラットにつなぐ NPO 法人(申請中) です。
             </p>
+            <Link
+              href="/contact/"
+              className="inline-flex items-center gap-1.5 mt-5 px-5 py-2.5 rounded-full text-xs font-bold hover:scale-[1.03] transition-transform"
+              style={{ background: CRAFT.BG, color: CRAFT.INK }}
+            >
+              問い合わせる <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
           {linkGroups.map((group) => (
             <div key={group.title}>
-              <h3 className="font-bold text-sm mb-3">{group.title}</h3>
-              <ul className="space-y-2">
+              <h3 className="font-bold text-xs mb-4 uppercase tracking-widest opacity-60">{group.title}</h3>
+              <ul className="space-y-2.5">
                 {group.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={`${group.title}-${link.href}-${link.label}`}>
                     <Link
                       href={link.href}
-                      className="text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)] transition-colors"
+                      className="text-sm opacity-80 hover:opacity-100 transition-opacity"
                     >
                       {link.label}
                     </Link>
@@ -72,21 +91,19 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* カラーバー (LVN 8 色) */}
+        {/* カラーバー (4 pillar 色 + 6 色) */}
         <div className="flex h-1.5 rounded-full overflow-hidden mb-6">
-          <div className="flex-1" style={{ background: "#FF4FB0" }} />
-          <div className="flex-1" style={{ background: "#FF5A5A" }} />
-          <div className="flex-1" style={{ background: "#9B5BFF" }} />
-          <div className="flex-1" style={{ background: "#2D8BFF" }} />
-          <div className="flex-1" style={{ background: "#B6EE5E" }} />
-          <div className="flex-1" style={{ background: "#4FC04F" }} />
-          <div className="flex-1" style={{ background: "#FFD647" }} />
-          <div className="flex-1" style={{ background: "#FFA235" }} />
+          <div className="flex-1" style={{ background: CRAFT.CORAL }} />
+          <div className="flex-1" style={{ background: CRAFT.SUN }} />
+          <div className="flex-1" style={{ background: CRAFT.LIME }} />
+          <div className="flex-1" style={{ background: CRAFT.SKY }} />
+          <div className="flex-1" style={{ background: CRAFT.PLUM }} />
+          <div className="flex-1" style={{ background: CRAFT.VIOLET }} />
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-xs text-[color:var(--color-text-muted)]">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 text-xs opacity-60">
           <p>© {new Date().getFullYear()} NPO 法人(申請中) ライフビジョンネット. All rights reserved.</p>
-          <p>関わるすべての人が幸福に暮らし、共に生きる社会の実現へ</p>
+          <p className="font-mono tracking-widest uppercase">Craft × Pop · 4 Pillars</p>
         </div>
       </div>
     </footer>

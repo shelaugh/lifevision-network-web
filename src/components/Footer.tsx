@@ -42,16 +42,15 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-3 mb-4">
               <Image
                 src="/logo.png"
-                alt="Life Vision NetWork"
+                alt="ライフビジョンネット"
                 width={48}
                 height={48}
                 className="w-12 h-12 object-contain"
               />
-              <span className="font-bold text-base">Life Vision NetWork</span>
+              <span className="font-bold text-base">ライフビジョンネット <span className="text-xs font-medium opacity-60">(NPO 法人申請中)</span></span>
             </Link>
             <p className="text-sm text-[color:var(--color-text-muted)] leading-relaxed max-w-md">
-              関わるすべての人が幸福に暮らし、共に生きる社会の実現へ。
-              多職種連携 × レクリエーションで「心を元気にする」社会を目指す一般社団法人。
+              月 1 のなんでも福祉相談室「なごみカフェ」と、資格単位にもなる月 1 講習会、5 団体の活動で、地域と多職種をフラットにつなぐ NPO 法人(申請中) です。
             </p>
           </div>
           {linkGroups.map((group) => (
@@ -86,7 +85,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-xs text-[color:var(--color-text-muted)]">
-          <p>© {new Date().getFullYear()} 一般社団法人 Life Vision NetWork. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} NPO 法人(申請中) ライフビジョンネット. All rights reserved.</p>
           <p>関わるすべての人が幸福に暮らし、共に生きる社会の実現へ</p>
         </div>
       </div>

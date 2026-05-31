@@ -1,7 +1,7 @@
 import { lvnInfo } from "@/data/lvn-info";
 
 export const metadata = {
-  title: "プライバシーポリシー | Life Vision NetWork",
+  title: "プライバシーポリシー | ライフビジョンネット",
 };
 
 export default function PrivacyPolicyPage() {

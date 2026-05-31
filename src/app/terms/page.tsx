@@ -1,7 +1,7 @@
 import { lvnInfo } from "@/data/lvn-info";
 
 export const metadata = {
-  title: "特定商取引法に基づく表記 | Life Vision NetWork",
+  title: "特定商取引法に基づく表記 | ライフビジョンネット",
 };
 
 export default function TermsPage() {

@@ -12,9 +12,9 @@ import {
 } from "@/components/decorations/HandDrawn";
 
 const stages = [
-  { no: 1, label: "知る", desc: "資格の概要・LVN で取る意義・多職種連携での活かし方を知る", icon: BookOpen },
+  { no: 1, label: "知る", desc: "資格の概要・月 1 講習会の流れ・多職種連携での活かし方を知る", icon: BookOpen },
   { no: 2, label: "取る", desc: "月 1 回の講習会に参加して単位を積み重ね、認定を受ける", icon: Award },
-  { no: 3, label: "活かす", desc: "★LVN 活動デビュー — 取得後すぐに 6 活動で実践できる", icon: Rocket },
+  { no: 3, label: "活かす", desc: "5 団体活動デビュー — 取得後すぐに 5 つの団体活動で実践できる", icon: Rocket },
 ];
 
 const qualifications = [
@@ -33,19 +33,21 @@ const qualifications = [
 ];
 
 const comparison = [
-  { label: "両資格が取得できる", lvn: true, others: false },
+  { label: "両資格の単位対応", lvn: true, others: false },
   { label: "日本レクリエーション協会公認", lvn: true, others: true },
   { label: "月 1 回の定例講習会", lvn: true, others: false },
   { label: "多職種連携の現場で学べる", lvn: true, others: false },
-  { label: "6 つの実践活動でデビューできる", lvn: true, others: false },
+  { label: "同日午前なごみカフェに参加可能", lvn: true, others: false },
+  { label: "5 団体活動でデビューできる", lvn: true, others: false },
 ];
 
 const faqs = [
-  { q: "未経験でも取得できますか？", a: "はい、特別な資格や経験は必要ありません。LVN では現場と並走しながら学べる課程を用意しています。" },
+  { q: "未経験でも取得できますか？", a: "はい、特別な資格や経験は必要ありません。月 1 講習会と並走しながら学べる課程を用意しています。" },
   { q: "費用はどれくらいかかりますか？", a: "資格・受講形態によって異なります。無料相談で具体的なプランをご案内します。" },
   { q: "どちらの資格を取るか迷っています。", a: "「主に福祉・介護・保育の現場で活かしたい方」はレクリエーションインストラクター、「スポーツ寄りで活躍したい方」はスポーツ・レクリエーション指導者がおすすめです。無料相談で適性をご一緒に整理できます。" },
   { q: "両方の資格を取れますか？", a: "可能です。月 1 回の講習会はどちらの単位としても認定されるため、順次取得を目指せます。" },
-  { q: "取得後、すぐに現場で活動できますか？", a: "はい。LVN は 6 つの活動 (なごみカフェ / ボドレク / Co Lab LIFE / 国際文化 / こどもパネル / my スポーツ) を運営しており、取得後すぐに「★LVN 活動デビュー」として実践できます。" },
+  { q: "取得後、すぐに現場で活動できますか？", a: "はい。本団体が連携する 5 団体の活動 (ボドレク / Co Lab LIFE / 国際文化 / こどもパネル / my スポーツ) があり、取得後すぐに 5 団体活動デビューとして実践できます。" },
+  { q: "なごみカフェには資格がなくても行けますか？", a: "はい。なごみカフェ (なんでも福祉相談室) は月 1 講習会と同日午前に開催され、誰でも無料で参加できます。資格や予約は不要です。" },
 ];
 
 export default function QualificationPage() {

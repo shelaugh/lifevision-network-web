@@ -25,16 +25,18 @@ export default function ActivitiesPage() {
               Our Activities
             </p>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95]">
-              6 つの実践活動。
+              5 団体の活動。
             </h1>
             <p className="text-base md:text-lg leading-relaxed mt-6 max-w-2xl opacity-90">
-              レクリエーションを軸に、多職種が連携して取り組む 6 つの活動。
+              レクリエーションを軸に、多職種が連携して取り組む 5 つの団体活動。
+              <br />
+              なんでも福祉相談室「<Link href="/nagomi-cafe/" className="underline font-bold">なごみカフェ</Link>」は、月 1 講習会と同日午前に別軸で開催しています。
             </p>
           </div>
         </div>
       </section>
 
-      {/* ============ 6 活動グリッド ============ */}
+      {/* ============ 5 団体グリッド ============ */}
       <section className="relative bg-white px-6 md:px-10 py-20 md:py-28 overflow-hidden">
         <HandStar color="#FFD647" className="absolute top-10 right-[5%]" size={50} />
         <HandSquiggle color="#9B5BFF" className="absolute top-1/3 left-[3%]" size={80} />

@@ -18,15 +18,15 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Life Vision NetWork (LVN) | 一般社団法人",
+  title: "ライフビジョンネット | NPO 法人(申請中)",
   description:
-    "関わるすべての人が幸福に暮らし、共に生きる社会の実現へ。多職種連携 × レクリエーションで「心を元気にする」社会を目指す一般社団法人ライフビジョンネットワーク。",
+    "月 1 のなんでも福祉相談室「なごみカフェ」と、資格単位にもなる月 1 講習会、5 団体の活動で、地域と多職種をフラットにつなぐ NPO 法人(申請中) ライフビジョンネット。",
   // Phase 1-4 仮公開期間は検索エンジンに載せない (Phase 5 本公開時に外す)
   robots: { index: false, follow: false },
   openGraph: {
-    title: "Life Vision NetWork (LVN)",
+    title: "ライフビジョンネット",
     description:
-      "関わるすべての人が幸福に暮らし、共に生きる社会の実現へ。",
+      "なごみカフェ + 月 1 講習会 + 5 団体活動 + 多職種連携 ── 地域と多職種をつなぐ NPO 法人(申請中)。",
     locale: "ja_JP",
     type: "website",
   },

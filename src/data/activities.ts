@@ -6,14 +6,13 @@ export type Activity = {
   hex: string;
 };
 
+/**
+ * 5 団体の活動 (NPO 法人ライフビジョンネット連携)
+ *
+ * 2026-05-31: なごみカフェは「なんでも福祉相談室」として 4 pillar の独立軸に昇格。
+ * 活動一覧からは外し、メインページ上は専用セクションで扱う。
+ */
 export const activities: Activity[] = [
-  {
-    slug: "nagomi-cafe",
-    name: "なごみカフェ",
-    tagline: "誰でも気軽に立ち寄れる、地域の居場所",
-    color: "--color-lvn-lime",
-    hex: "#B6EE5E",
-  },
   {
     slug: "bodorec",
     name: "ボドレク",

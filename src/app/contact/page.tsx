@@ -14,10 +14,25 @@ export default function ContactPage() {
             お問い合わせ。
           </h1>
           <p className="text-base md:text-lg text-[color:var(--color-text-muted)] max-w-2xl leading-relaxed">
-            資格・講習会・イベント・取材依頼など、お気軽にご連絡ください。
+            なごみカフェ参加・月 1 講習会の受講・5 団体活動への参加・多職種連携の協業・取材依頼など、お気軽にご連絡ください。
             <br />
             通常 2-3 営業日以内にご返信します。
           </p>
+
+          {/* 4 pillar quick contact reasons */}
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl">
+            {[
+              { label: "なごみカフェに行く", color: "#A4DC4F" },
+              { label: "月 1 講習会を受ける", color: "#FF5A3D" },
+              { label: "5 団体活動に参加", color: "#5DC9F2" },
+              { label: "多職種連携の協業", color: "#9B5BFF" },
+            ].map((r) => (
+              <div key={r.label} className="bg-white rounded-2xl p-4 border border-[color:var(--color-border)] flex items-start gap-2">
+                <span className="w-2.5 h-2.5 rounded-full mt-1.5 shrink-0" style={{ background: r.color, boxShadow: `0 2px 6px ${r.color}60` }} />
+                <p className="text-xs font-bold leading-tight">{r.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
